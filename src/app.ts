@@ -2,10 +2,15 @@ import * as Express from "express";
 import * as bodyParser from "body-parser";
 import * as timeout from "connect-timeout";
 import * as cors from "cors";
+import * as path from "path";
 import morgan from "./middlewares/morgan";
 import IError from "./utils/IError";
+import { db, ModelLoader } from "./middlewares/sequelize";
 
 export const app = Express();
+new ModelLoader(db, path.join(__dirname, "./models"), {
+  debug: process.env.NODE_ENV === "development"
+});
 
 app.use(morgan);
 app.use(timeout("10s"));

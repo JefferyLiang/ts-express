@@ -1,7 +1,12 @@
 {
   "env": {
     "NODE_ENV": "development",
-    "DEBUG": "debug:*"
+    "DEBUG": "debug:*",
+    "DB_BASE": "detauldatabase",
+    "DB_HOST": "localhost",
+    "DB_PORT": 3306,
+    "DB_USER": "root",
+    "DB_PASSWORD": "123456"
   },
   "watch": ["src", "tsconfig.json"],
   "ext": "ts",
