@@ -1,0 +1,35 @@
+version: "2.2"
+services:
+  api:
+    build: .
+    ports:
+      - 3001:3001
+    container_name: api-services
+    tty: true
+    environment:
+      DB_HOST: mysql
+      DB_PORT: 3306
+      DB_USER: default
+      DB_PASSWORD: 123456
+      DB_BASE: defaultdatabase
+      PORT: 3001
+    links:
+      - mysql:mysql
+    depends_on:
+      - mysql
+    networks:
+      - api-network
+  mysql:
+    image: mysql:5.7
+    container_name: api-mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=123456
+      - MYSQL_DATABASE=defaultdatabase
+      - MYSQL_USER=default
+      - MYSQL_PASSWORD=123456
+    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    networks:
+      - api-network
+networks:
+  api-network:
+    driver: bridge
