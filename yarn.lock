@@ -52,7 +52,7 @@
   dependencies:
     defer-to-connect "^1.0.1"
 
-"@types/bluebird@*":
+"@types/bluebird@*", "@types/bluebird@^3.5.32":
   version "3.5.32"
   resolved "https://registry.npmjs.org/@types/bluebird/-/bluebird-3.5.32.tgz#381e7b59e39f010d20bbf7e044e48f5caf1ab620"
   integrity sha512-dIOxFfI0C+jz89g6lQ+TqhGgPQ0MxSnh/E4xuC0blhFtyW269+mPG5QeLgbdwst/LvdP8o1y0o/Gz5EHXLec/g==
@@ -177,7 +177,7 @@
     "@types/express-serve-static-core" "*"
     "@types/mime" "*"
 
-"@types/validator@*":
+"@types/validator@*", "@types/validator@^13.0.0":
   version "13.0.0"
   resolved "https://registry.npmjs.org/@types/validator/-/validator-13.0.0.tgz#365f1bf936aeaddd0856fc41aa1d6f82d88ee5b3"
   integrity sha512-WAy5txG7aFX8Vw3sloEKp5p/t/Xt8jD3GRD9DacnFv6Vo8ubudAsRTXgxpQwU0mpzY/H8U4db3roDuCMjShBmw==
