@@ -1,5 +1,5 @@
 import * as http from "http";
-import { app } from "./app";
+import { express as app } from "./app";
 import { normalizePort } from "./utils/http";
 const debug = require("debug")("debug:http");
 

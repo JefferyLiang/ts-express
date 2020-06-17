@@ -6,33 +6,37 @@ import * as path from "path";
 import morgan from "./middlewares/morgan";
 import IError from "./utils/IError";
 import { db, ModelLoader } from "./middlewares/sequelize";
+import { ExpressApp, ControllerLoader } from "express-ts-decorator";
 
-export const app = Express();
-new ModelLoader(db, path.join(__dirname, "./models"), {
-  debug: process.env.NODE_ENV === "development"
-});
-
-app.use(morgan);
-app.use(timeout("10s"));
-
-if (process.env.NODE_ENV !== "production") {
-  app.use(cors());
+@ControllerLoader({
+  debug: process.env.NODE_ENV === "development",
+  filePath: path.join(__dirname, "./controllers"),
+  autoInjectRoutes: true
+})
+class App extends ExpressApp {
+  beforeRouterInjectMiddlewares = [
+    morgan,
+    timeout("10s"),
+    {
+      active: process.env.NODE_ENV === "development",
+      middleware: cors()
+    },
+    bodyParser.json({
+      strict: false
+    }),
+    bodyParser.urlencoded({
+      extended: true
+    })
+  ];
+  constructor() {
+    super(Express());
+    new ModelLoader(db, path.join(__dirname, "./models"), {
+      debug: process.env.NODE_ENV === "development"
+    });
+  }
 }
 
-app.use(
-  bodyParser.json({
-    strict: false
-  })
-);
-app.use(
-  bodyParser.urlencoded({
-    extended: true
-  })
-);
-
-app.get("/", (req, res, next) => {
-  res.end("Hello express with typescript");
-});
+const app = new App();
 
 app.use(
   (
@@ -63,3 +67,5 @@ app.use(
     }
   }
 );
+
+export const express = app.express;
