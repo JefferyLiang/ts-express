@@ -1,0 +1,10 @@
+{
+  "env": {
+    "NODE_ENV": "development",
+    "DEBUG": "debug:*"
+  },
+  "watch": ["src", "tsconfig.json"],
+  "ext": "ts",
+  "ignore": ["node_modules"],
+  "exec": "ts-node ./src/index.ts"
+}
