@@ -54,13 +54,13 @@ app.use(
 
     if (err instanceof IError) {
       res.status(err.status || 500);
-      res.end({
+      res.json({
         code: err.err_code,
         message: err.message
       });
     } else {
       res.status(500);
-      res.end({
+      res.json({
         code: 500,
         message: err.message
       });
