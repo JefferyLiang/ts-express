@@ -1,6 +1,4 @@
 node_modules
-scripts/mysql/datas
 scripts/mysql/data
-wechat.txt
 
 *.DS_Store
