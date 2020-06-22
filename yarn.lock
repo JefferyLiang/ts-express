@@ -730,10 +730,10 @@ event-emitter@^0.3.5:
     d "1"
     es5-ext "~0.10.14"
 
-express-ts-decorator@^0.1.19:
-  version "0.1.19"
-  resolved "https://registry.npmjs.org/express-ts-decorator/-/express-ts-decorator-0.1.19.tgz#89bd2cd6ce66b280c3a78d258d0241a347bc1c97"
-  integrity sha512-uzXDlAlznT/23kE0ZNTlNp/W3+Xm2DKj4iHtyPQ7VqieIzOOZjyHLlG6klxonqkdlUoTn7PDer3y6FNdadrZtQ==
+express-ts-decorator@^0.1.21:
+  version "0.1.21"
+  resolved "https://registry.npmjs.org/express-ts-decorator/-/express-ts-decorator-0.1.21.tgz#1406ab5cff757425366b764f219cbad694503a60"
+  integrity sha512-5ireMBHgxjfAkhCV+RfNtyzTApHpWj7dy50FnG82ceo9r14QmmxgT0JSSiKIG87rG/A4XD750XbTYEtFL0I5gQ==
   dependencies:
     "@hapi/joi" "^16.1.7"
     "@types/express" "^4.17.2"
